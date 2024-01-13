@@ -1,0 +1,32 @@
+@import "./mixins";
+
+header {
+  background-color: var(--main-background-color);
+}
+.logo {
+  width: 80px;
+  border-radius: 50%;
+}
+.logo-text {
+  color: var(--text-primary-color);
+}
+.nav-item {
+  height: 100px;
+  transition: var(--transition);
+}
+.nav-item:hover{
+  background-color: var(--secondary-color);
+  border-bottom: 5px solid var(--primary-color);
+}
+.nav-item:focus,
+.nav-link,
+.navbar-nav {
+  color: var(--primary-color);
+}
+.navbar .navbar-toggler {
+  @include text($font-size: 1.5rem, $font-weight: 0, $color: var(--primary-color))
+}
+.navbar-toggler,
+.navbar-toggler:focus {
+  box-shadow: none;
+}

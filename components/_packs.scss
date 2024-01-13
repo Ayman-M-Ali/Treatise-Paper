@@ -1,0 +1,71 @@
+@import "./mixins";
+
+.packs .container {
+  @include threeColumns($display: grid, $gap: 3rem, $margin: 6rem auto 3rem);
+}
+.packs__box {
+  position: relative;
+  background-color: var(--main-background-color);
+  border: 1px solid var(--primary-color);
+  padding: 1.5rem 1rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+.primary {
+  margin-top: -30px;
+  padding-top: 3.6rem;
+}
+.primary::before {
+  @include text($font-size: .9rem, $font-weight: 600, $color: var(--text-primary-color));
+  content: "Most Popular";
+  position: absolute;
+  top: -20px;
+  right: 20px;
+  width: 30px;
+  height: 120px;
+  background-color: var(--secondary-color);
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+.primary::after {
+  content: "";
+  position: absolute;
+  top: 86px;
+  right: 21px;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 15px solid var(--main-background-color);
+}
+.packs__title {
+  @include text($font-size: 1.5rem, $font-weight: 600, $color: var(--text-primary-color));
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.packs__price {
+  @include text($font-size: 1.3rem, $font-weight: 800, $color: var(--secondary-color))
+}
+.pack__list {
+  margin: 1rem 0;
+  padding: 1rem 2rem;
+}
+.pack__list-item {
+  color: var(--text-secondary-color);
+}
+.right-check {
+  color: green;
+  margin-right: 1.5rem;
+}
+.packs__box p:nth-last-child(2) {
+  text-align: center;
+  font-weight: 700;
+  margin: 1rem;
+  color: var(--text-primary-color);
+}
+.packs__button {
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
+  padding: 1rem 2rem;
+}

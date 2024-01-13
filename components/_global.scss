@@ -1,0 +1,47 @@
+@import "./mixins";
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Rubik", sans-serif;
+}
+ul,
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+section {
+  padding: 3rem;
+  opacity: 0;
+  transform: translateY(1rem);
+  transition: all .5s ease-in-out;
+
+  &.in-view {
+    opacity: 1;
+    transform: translateY(0);
+
+    :not(.section--one-column) & {
+      & > div:nth-of-type(1) {
+        transform: translateX(0rem);
+      }
+
+      & > div:nth-of-type(2) {
+        transform: translateX(0rem);
+      }
+    }
+  }
+}
+h2 {
+  @include text($font-size: 3rem, $font-weight: 400, $color: var(--primary-color));
+  margin: 2rem;
+  text-align: center;
+}
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
