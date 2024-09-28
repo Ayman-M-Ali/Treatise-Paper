@@ -1,0 +1,39 @@
+@import "./mixins";
+
+.statistics {
+  background-color: var(--main-background-color);
+}
+.statistics__container {
+  @include threeColumns($display: grid, $gap: 3rem, $margin: 3rem 0);
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+}
+.statistics__box {
+  @include text($font-size: 1.5rem, $font-weight: 600, $color: var(--text-primary-color));
+  padding: 1.5rem 2rem;
+  text-align: center;
+  border: 1px solid var(--primary-color);
+  transform: var(--skew);
+  position: relative;
+  box-shadow: var(--box-shadow);
+  border-radius: var(--border-radius);
+}
+.statistics__box + p {
+  @include text($font-size: 1.5rem, $font-weight: 400, $color: var(--text-primary-color));
+  text-align: center;
+  margin: 2rem 0;
+}
+.statistics__box::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 100%;
+  right: 0;
+  bottom: 0;
+  background: var(--secondary-color);
+  opacity: .6;
+  z-index: -1;
+  transition: all .5s ease;
+}
+.statistics__box:hover::before {
+  width: 100%;
+}
