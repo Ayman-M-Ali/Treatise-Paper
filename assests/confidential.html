@@ -12,38 +12,55 @@
       rel="stylesheet"
     />
     <!-- Font Awesome Library -->
-    <link rel="stylesheet" href="styles/bootstrap.min.css" />
-    <link rel="stylesheet" href="styles/all.min.css" />
-    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="../styles/bootstrap.min.css" />
+    <link rel="stylesheet" href="../styles/all.min.css">
+    <link rel="stylesheet" href="../styles/style.css" />
+    <link rel="stylesheet" href="../styles/style.scss" />
     <title>Confidential</title>
   </head>
   <body>
-    <header>
-      <nav class="navbar navbar-expand-lg p-0">
+    <header class="d-flex align-items-center">
+      <nav class="navbar navbar-expand-lg w-100 p-0">
         <div class="container">
-          <a href="#main" class="w-300 d-flex align-items-center gap-3">
-            <img class="logo" src="images/logo.png" alt="Treatise Paper" />
+          <a href="../index.html" class="w-300 d-flex align-items-center gap-3">
+            <img class="logo" src="../assests/images/logo.webp" alt="Treatise Paper" />
             <p class="fs-3 mb-0 fw-semibold logo-text">Treatise Paper</p>
           </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main" aria-expanded="false" aria-label="Toggle navigation">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#main"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
             <i class="fa-solid fa-bars"></i>
           </button>
-          <div class="collapse navbar-collapse" id="main">
-            <ul class="navbar-nav ms-auto mb-2 mt-sm-3 mt-lg-0 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link p-2 p-lg-3 fs-5 active" aria-current="page" href="#nav">Home</a>
+          <div class="collapse navbar-collapse justify-content-end" id="main">
+            <ul class="navbar-nav">
+              <li class="nav-item d-lg-flex align-items-center">
+                <a
+                  class="nav-link p-2 p-lg-3 fs-5"
+                  aria-current="page"
+                  href="#nav"
+                  >Home</a
+                >
               </li>
-              <li class="nav-item">
-                <a class="nav-link p-2 p-lg-3 fs-5" href="#services">Services</a>
+              <li class="nav-item d-lg-flex align-items-center">
+                <a class="nav-link p-2 p-lg-3 fs-5" href="../index.html#services"
+                  >Services</a
+                >
               </li>
-              <li class="nav-item">
-                <a class="nav-link p-2 p-lg-3 fs-5" href="#statistics">Statistics</a>
+              <li class="nav-item d-lg-flex align-items-center">
+                <a class="nav-link p-2 p-lg-3 fs-5" href="../index.html#statistics"
+                  >Statistics</a
+                >
               </li>
-              <li class="nav-item">
-                <a class="nav-link p-2 p-lg-3 fs-5" href="#packs">Packs</a>
+              <li class="nav-item d-lg-flex align-items-center">
+                <a class="nav-link p-2 p-lg-3 fs-5" href="../index.html#packs">Packs</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link p-2 p-lg-3 fs-5" href="#contact">Contact</a>
+              <li class="nav-item d-lg-flex align-items-center">
+                <a class="nav-link p-2 p-lg-3 fs-5" href="../index.html#contact">Contact</a>
               </li>
             </ul>
           </div>
@@ -53,7 +70,7 @@
     <main>
       <div class="confidential__heading"></div>
       <h1 class="confidential__title">Confidential</h1>
-      <section>
+      <section class="appears">
         <div class="confidential__container container">
           <p class="confidential__text">
             We at Words Doctorate offer high-quality work as well as promise to
@@ -164,5 +181,12 @@
         </div>
       </div>
     </footer>
+    <script src="../js/bootstrap.bundle.min.js" type="module"></script>
+    <script src="../js/all.min.js" type="module"></script>
+    <script src="../js/tapToTop.js" type="module"></script>
+    <script src="../js/countingAutoWhenScroll.js" type="module"></script>
+    <script src="../js/elements.js" type="module"></script>
+    <script src="../js/utilis.js" type="module"></script>
+    <script src="../js/script.js" type="module"></script>
   </body>
 </html>

@@ -34,6 +34,9 @@ section {
     }
   }
 }
+.appears {
+  opacity: 1;
+}
 h2 {
   @include text($font-size: 3rem, $font-weight: 400, $color: var(--primary-color));
   margin: 2rem;
