@@ -4,7 +4,6 @@ import { numbers, section, form, sectionElements } from "./elements.js";
 import { observerElements } from "./intersectioinObserver.js";
 import { clearFormInputs, handleFormSubmit } from "./utilis.js";
 
-
 // Moving to Top
 tapToTop();
 // ============================================
@@ -13,9 +12,13 @@ tapToTop();
 let started = false;
 
 window.addEventListener("scroll", () => {
-  if (window.scrollY >= section.offsetTop - 250) {
+  if (section && window.scrollY >= section.offsetTop - 250) {
     if (!started) {
-      numbers.forEach(num => countingAutoWhenScroll(num));
+      numbers.forEach(num => {
+        if (num) {
+          countingAutoWhenScroll(num);
+        }
+      });
       started = true;
     }
   }
@@ -24,11 +27,15 @@ window.addEventListener("scroll", () => {
 
 // Form Validation
 // Function to clear the form inputs
-clearFormInputs();
+if (form) {
+  clearFormInputs();
 
-// Add event listener for form submission
-form.addEventListener("submit", handleFormSubmit);
+  // Add event listener for form submission
+  form.addEventListener("submit", handleFormSubmit);
+}
 // ========================================
 
 // Section Observer API
-observerElements(sectionElements);
+if (sectionElements.length > 0) {
+  observerElements(sectionElements);
+}

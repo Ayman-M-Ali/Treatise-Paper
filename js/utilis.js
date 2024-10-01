@@ -2,11 +2,11 @@ import { theName, email, phone, country, textArea, form, errorDiv } from "./elem
 
 // Function to clear the form inputs
 export const clearFormInputs = () => {
-  theName.value = "";
-  email.value = "";
-  phone.value = "";
-  country.selectedIndex = 0;
-  textArea.value = "";
+  if (theName) theName.value = "";
+  if (email) email.value = "";
+  if (phone) phone.value = "";
+  if (country) country.selectedIndex = 0;
+  if (textArea) textArea.value = "";
 };
 
 // ==================================
@@ -16,7 +16,7 @@ export const handleFormSubmit = event => {
   let incorrectInput = "";
 
   // Check if name value is not null or undefined
-  if (!theName.value) {
+  if (!theName || !theName.value) {
     incorrectInput += "Your name cannot be empty.\n";
   } else {
     const firstLetter = theName.value[0];
@@ -31,36 +31,39 @@ export const handleFormSubmit = event => {
   }
 
   // Check if email includes (@)
-  const emailIncludes = email.value.includes("@");
-  if (!emailIncludes) {
+  if (!email || !email.value.includes("@")) {
     incorrectInput += "Your email must include @.\n";
   }
 
   // Check if phone number is valid
   const phoneNumber = /^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\./0-9]{8,14}$/g;
-  if (!phone.value.match(phoneNumber)) {
+  if (!phone || !phone.value.match(phoneNumber)) {
     incorrectInput += "Your phone number must contain only numbers, +, -, (), and be at least 8 digits.\n";
   }
 
   // Check if a country is selected
-  if (country.selectedIndex === 0) {
+  if (!country || country.selectedIndex === 0) {
     incorrectInput += "Your country is required.\n";
   }
 
-  // Check if the message contains only alphabetical characters
+  // Check if the message contains only allowed characters
   const message = /^[A-Za-z0-9 .'?!,@$#-_\n\r\s]+$/;
-  if (!textArea.value.match(message)) {
+  if (!textArea || !textArea.value.match(message)) {
     incorrectInput += "Your message must contain only alphabetical characters.\n";
   }
 
   if (incorrectInput !== "") {
-    errorDiv.innerText = incorrectInput;
-    errorDiv.style.color = "red";
+    if (errorDiv) {
+      errorDiv.innerText = incorrectInput;
+      errorDiv.style.color = "red";
+    }
   } else {
     // Submit the form data
-    form.submit();
-    clearFormInputs();
-    form.removeEventListener("submit", handleFormSubmit);
+    if (form) {
+      form.submit();
+      clearFormInputs();
+      form.removeEventListener("submit", handleFormSubmit);
+    }
   }
 };
 
@@ -71,4 +74,3 @@ window.addEventListener("pageshow", event => {
     clearFormInputs();
   }
 });
-
