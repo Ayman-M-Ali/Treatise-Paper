@@ -39,3 +39,10 @@ if (form) {
 if (sectionElements.length > 0) {
   observerElements(sectionElements);
 }
+// ========================================
+
+// Get Current Year in Footer
+let copyRightYear = document.querySelector('.copyRightYear');
+const currentYear = new Date().getFullYear();
+
+copyRightYear.innerHTML = `© ${currentYear} by <span>Treatise Paper</span>`;
